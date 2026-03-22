@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>About Us | Holy Trinity International Mission Nairobi Kenya</title>
+  <meta name="description"
+    content="Learn about Holy Trinity International Mission in Nairobi, Kenya. Our mission, leadership, and commitment to evangelism, community outreach, and spiritual growth.">
+  <meta name="keywords"
+    content="about church Nairobi, Christian mission Kenya, Holy Trinity Mission, church leadership Nairobi">
+  <meta name="author" content="Dominic Kimani">
+
+  <!-- Sitemap -->
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml">
+
+  <link rel="stylesheet" href="css/about-styles.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <img src="images/WhatsApp Image 2026-03-09 at 11.37.44.jpeg" alt="Holy Trinity International Mission">
+    <h1>Holy Trinity International Mission</h1>
+  </header>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <button class="donate-btn">DONATE</button>
+  </nav>
+
+  <!-- SEO TEXT -->
+  <section class="seo-text">
+    <h1>About Holy Trinity International Mission</h1>
+    <h2>Christian Ministry in Nairobi, Kenya</h2>
+    <p>
+      Holy Trinity International Mission is a growing Christian ministry based in Nairobi, Kenya.
+      We are committed to spreading the Gospel, empowering communities, and raising strong spiritual leaders.
+      Our core goals include glorifying God through evangelism, training local leaders, supporting missionaries, and
+      addressing both spiritual and physical needs in local and global communities.
+    </p>
+  </section>
+
+  <div class="heads">
+    <p>OUR LEADERS</p>
+  </div>
+
+
+  <!-- Leaders -->
+  <section class="leaders">
+    <div class="leader">
+      <img src="images/pastor steve.jpeg" alt="Reverend Steve Chairperson Holy Trinity Mission Nairobi">
+      <p>Chairperson</p>
+      <p>Reverend Steve</p>
+    </div>
+    <div class="leader">
+      <img src="images/vice-chair.jpeg" alt="Pastor Ruremesha John Vice Chairperson Nairobi">
+      <p>Vice Chairperson</p>
+      <p>Pastor Ruremesha John</p>
+    </div>
+    <div class="leader">
+      <img src="images/accountant.jpeg" alt="Mr Mutima Boaz Treasurer Holy Trinity Mission">
+      <p>Treasurer</p>
+      <p>Mr Mutima Boaz</p>
+    </div>
+    <div class="leader">
+      <img src="images/WhatsApp Image 2026-03-13 at 13.53.25.jpeg"
+        alt="Mr Singaye Peter Secretary Holy Trinity Mission">
+      <p>Secretary</p>
+      <p>Mr Singaye Peter</p>
+    </div>
+    <div class="leader">
+      <img src="images/WhatsApp Image 2026-03-09 at 11.37.44.jpeg"
+        alt="Mr Singaye Peter Secretary Holy Trinity Mission">
+      <p>Mission co-ordinator</p>
+      <p>Mr Solomon Ocran</p>
+    </div>
+    <div class="leader">
+      <img src="images/WhatsApp Image 2026-03-09 at 11.37.44.jpeg"
+        alt="Mr Singaye Peter Secretary Holy Trinity Mission">
+      <p>Mission co-ordinator</p>
+      <p>Mrs Elizabeth Ocran</p>
+    </div>
+  </section>
+
+  <!-- Join -->
+  <div class="container">
+    <a href="https://wa.me/254782729130?text=Hello%20I%20would%20like%20to%20know%20more%20about%20Holy%20Trinity%20Mission"
+      target="_blank">
+      <button class="join-us-button">JOIN US</button>
+    </a>
+  </div>
+
+  <!-- Middle Sections -->
+  <section class="middle">
+    <div class="middle-sections">
+      <p class="our-mission">Our Mission</p>
+      <p>To expand the Kingdom of God.</p>
+      <p>Provide financial and material support.</p>
+      <p>Mobilize churches for missions.</p>
+      <p>Develop godly leaders.</p>
+    </div>
+    <div class="middle-sections">
+      <p class="our-mission">Our Goals</p>
+      <p>Community transformation in Nairobi, Kenya.</p>
+      <p>Building churches and schools.</p>
+      <p>Improving healthcare access.</p>
+      <p>Providing clean water to communities.</p>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Holy Trinity International Mission. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Floating WhatsApp for Two Numbers -->
+  <a class="whatsapp-float" href="#" onclick="sendWhatsApp()">💬 Chat With Us</a>
+
+  <!-- M-PESA Modal -->
+  <div id="mpesaModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>M-Pesa Donation</h2>
+      <p><strong>Paybill:</strong> 522522</p>
+      <p><strong>Account:</strong> <span id="accountNumber">1350150231</span></p>
+      <button id="copyAccountBtn">Copy Account Number</button>
+      <p>Thank you for supporting Holy Trinity Mission 🙏</p>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const donateBtn = document.querySelector(".donate-btn");
+      const modal = document.getElementById("mpesaModal");
+      const closeBtn = modal.querySelector(".close");
+      const copyBtn = document.getElementById("copyAccountBtn");
+
+      // Open modal on Donate click
+      donateBtn.addEventListener("click", () => modal.style.display = "flex");
+
+      // Close modal on X click
+      closeBtn.addEventListener("click", () => modal.style.display = "none");
+
+      // Close modal if click outside
+      modal.addEventListener("click", e => {
+        if (e.target === modal) modal.style.display = "none";
+      });
+
+      // Copy account
+      copyBtn.addEventListener("click", () => {
+        const account = document.getElementById("accountNumber").innerText;
+        navigator.clipboard.writeText(account);
+        alert("Account number copied: " + account);
+      });
+
+      // WhatsApp to two numbers
+      window.sendWhatsApp = function () {
+        const message = "Hello, I would like to inquire about Holy Trinity Mission";
+        const number1 = "254782729130";
+        const number2 = "254701760175";
+        window.open(`https://wa.me/${number1}?text=${encodeURIComponent(message)}`, "_blank");
+        setTimeout(() => window.open(`https://wa.me/${number2}?text=${encodeURIComponent(message)}`, "_blank"), 1500);
+      };
+    });
+  </script>
+
+</body>
+
+</html>

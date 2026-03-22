@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Holy Trinity International Mission | Church in Nairobi Kenya</title>
+
+  <meta name="description"
+    content="Holy Trinity International Mission is a Christian church in Nairobi, Kenya focused on worship, outreach, and community transformation.">
+  <meta name="keywords" content="church in Nairobi, church Kenya, Christian ministry Nairobi, Holy Trinity Mission">
+  <meta name="author" content="Dominic Kimani">
+
+
+  <link rel="stylesheet" href="css/index-styles.css">
+
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo-area">
+      <img src="images/WhatsApp Image 2026-03-09 at 11.37.44.jpeg">
+      <h1>Holy Trinity International Mission</h1>
+    </div>
+
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="about-mission.html">About</a>
+      <a href="ministry.html">Ministries</a>
+      <a href="partnerships.html">Partnerships</a>
+    </nav>
+  </header>
+
+  <!-- ANNOUNCEMENT -->
+  <section class="announcement">
+    <button class="donate-btn">DONATE</button>
+    <p>Spreading the Gospel to unreached people, communities, and nations.</p>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section">
+    <h2>Contact Us</h2>
+
+    <div class="contact-buttons">
+
+      <!-- EMAIL -->
+      <a class="email-btn"
+        href="mailto:holytrinityministries@gmail.com?subject=Ministry Inquiry&body=Hello Holy Trinity Mission,%0D%0AI would like to inquire about your ministry."
+        target="_self">
+        📧 Email Us
+      </a>
+
+      <!-- CALL -->
+      <a class="call-btn" href="tel:+254701760175" target="_self">
+        📞 Call Us
+      </a>
+
+    </div>
+  </section>
+
+  <section class="announcement">
+    <p>Focuses on serving the poor and abandoned.</p>
+    <p>Building infrastructure, such as water systems.</p>
+    <p>We also conduct specialized events like "Global Mission Weekends" to educate our congregations and connect them
+      with international partners.</p>
+    <p>We seek to develop the character and heart of each member so that we can better minister to our families and our
+      world. </p>
+  </section>
+
+
+  <!-- M-PESA MODAL -->
+  <div id="mpesaModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>M-Pesa Donation</h2>
+      <p><strong>Paybill:</strong> 522522</p>
+      <p><strong>Account:</strong> <span id="accountNumber">1350150231</span></p>
+      <button id="copyAccountBtn">Copy Account Number</button>
+      <p>Thank you for supporting Holy Trinity Mission 🙏</p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2026 Holy Trinity International Mission. All Rights Reserved</p>
+    <p><a class="site" href="sitemap.xml">View Sitemap</a></p>
+  </footer>
+
+  <!-- WHATSAPP FLOAT -->
+  <a class="whatsapp-float" href="#">💬 Chat With Us</a>
+
+  <!-- SCRIPT -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      const donateBtn = document.querySelector(".donate-btn");
+      const modal = document.getElementById("mpesaModal");
+      const closeBtn = modal.querySelector(".close");
+      const copyBtn = document.getElementById("copyAccountBtn");
+
+      // Donate
+      donateBtn.addEventListener("click", () => modal.style.display = "flex");
+
+      // Close modal
+      closeBtn.addEventListener("click", () => modal.style.display = "none");
+      modal.addEventListener("click", e => {
+        if (e.target === modal) modal.style.display = "none";
+      });
+
+      // Copy account
+      copyBtn.addEventListener("click", () => {
+        const account = document.getElementById("accountNumber").innerText;
+        navigator.clipboard.writeText(account);
+        alert("Account number copied: " + account);
+      });
+
+      // WhatsApp (2 contacts)
+      document.querySelector(".whatsapp-float").addEventListener("click", e => {
+        e.preventDefault();
+        const message = "Hello, I would like to inquire about Holy Trinity Mission";
+        const number1 = "254782729130";
+        const number2 = "254701760175";
+
+        window.open(`https://wa.me/${number1}?text=${encodeURIComponent(message)}`, "_blank");
+        setTimeout(() => {
+          window.open(`https://wa.me/${number2}?text=${encodeURIComponent(message)}`, "_blank");
+        }, 1500);
+      });
+
+    });
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partnerships & Involvements | Holy Trinity International Mission</title>
+
+  <meta name="description"
+    content="Join Holy Trinity International Mission through prayer, financial support, leadership training, and missionary sending.">
+  <meta name="keywords" content="partnership, mission support, Christian ministry, Kenya">
+  <meta name="author" content="Dominic Kimani">
+
+  <link rel="stylesheet" href="css/partnerships-styles.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="h1">Partnerships and Involvements</div>
+  </header>
+
+  <nav class="nav">
+    <button class="donate-btn" onclick="openMpesaModal()">DONATE</button>
+  </nav>
+
+  <!-- M-PESA MODAL -->
+  <div id="mpesaModal" class="modal">
+    <div class="modal-box">
+      <span class="close" onclick="closeMpesaModal()">&times;</span>
+      <h2>M-Pesa Donation</h2>
+      <p><strong>Paybill:</strong> 522522</p>
+      <p><strong>Account:</strong> <span id="accountNumber">1350150231</span></p>
+      <button class="copy-btn" onclick="copyAccount()">Copy Account Number</button>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <section class="middle">
+
+    <div class="visions">
+      <img class="photos" src="images/WhatsApp Image 2026-03-11 at 08.22.05.jpeg" onclick="expandImage(this)">
+      <p><b>Prayer Partnership</b></p>
+      <p>Pray regularly for the ministry, leaders, missionaries, and mission fields. Join prayer meetings,
+        fasting days, and prayer chains.</p>
+      <p class="vision-subheads">IMPACT</p>
+      <p>Spiritual strength and divine direction for mission work.</p>
+    </div>
+
+    <div class="visions">
+      <img class="photos" src="images/WhatsApp Image 2026-03-11 at 08.25.13.jpeg" onclick="expandImage(this)">
+      <p><b>Financial Partnership</b></p>
+      <p>Provide monthly or one-time financial support. Sponsor mission programs or leadership training.</p>
+      <p class="vision-subheads">IMPACT</p>
+      <p>Sustains and expands mission activities.</p>
+    </div>
+
+    <div class="visions">
+      <img class="photos" src="images/WhatsApp Image 2026-03-11 at 08.22.08.jpeg" alt="Leadership support"
+        onclick="expandImage(this)">
+      <p><b>Leadership & Training Support</b></p>
+      <p>Provide trainers, teachers, and mentors. Support leadership development programs.</p>
+      <p class="vision-subheads">IMPACT</p>
+      <p>Well-equipped leaders and missionaries with a mature, consistent walk with God.</p>
+    </div>
+
+    <div class="visions">
+      <img class="photos" src="images/WhatsApp Image 2026-03-13 at 14.16.11.jpeg" alt="Missionary support"
+        onclick="expandImage(this)">
+      <p><b>Missionary Support & Sending</b></p>
+      <p>Send missionaries through the mission, provide care and encouragement.</p>
+      <p class="vision-subheads">IMPACT</p>
+      <p>Effective and sustainable mission service empowering local communities and leadership.</p>
+    </div>
+
+    <div class="visions">
+      <img class="photos" src="images/WhatsApp Image 2026-03-11 at 08.25.14.jpeg" alt="Advocacy"
+        onclick="expandImage(this)">
+      <p><b>Advocacy & Networking</b></p>
+      <p>Promote the ministry through churches and events. Serve as a mission ambassador in your community.</p>
+      <p class="vision-subheads">IMPACT</p>
+      <p>Wider reach, stronger mission networks, and measurable social impact.</p>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>We invite partnerships between churches...</p>
+    <p><b>Our Partnership Belief</b></p>
+    <p>We believe partnership is a shared calling...</p>
+    <hr style="background:rgb(151,164,6)">
+    <p>© 2026 Holy Trinity International Mission. All Rights Reserved</p>
+  </footer>
+
+
+
+  <!-- IMAGE MODAL -->
+  <div id="imageModal" class="img-modal">
+    <span class="close-img" onclick="closeImageModal()">&times;</span>
+    <img id="expandedImg">
+  </div>
+
+  <!-- WHATSAPP -->
+  <a class="whatsapp-float" href="https://wa.me/254782729130" target="_blank">
+    💬 Chat With Us
+  </a>
+
+  <!-- SCRIPT -->
+  <script>
+    function expandImage(img) {
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("expandedImg");
+
+      modal.style.display = "flex";
+      modalImg.src = img.src;
+    }
+
+    function closeImageModal() {
+      document.getElementById("imageModal").style.display = "none";
+    }
+
+    function openMpesaModal() {
+      document.getElementById("mpesaModal").style.display = "flex";
+    }
+
+    function closeMpesaModal() {
+      document.getElementById("mpesaModal").style.display = "none";
+    }
+
+    function copyAccount() {
+      let acc = document.getElementById("accountNumber").innerText;
+      navigator.clipboard.writeText(acc);
+      alert("Copied: " + acc);
+    }
+  </script>
+
+</body>
+
+</html>

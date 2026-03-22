@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Vision & Ministry | Holy Trinity International Mission Nairobi Kenya</title>
+  <meta name="description"
+    content="Discover the vision and ministries of Holy Trinity International Mission in Nairobi, Kenya. See how we mobilize churches, raise leaders, and prepare missionaries.">
+  <meta name="keywords"
+    content="church ministry Nairobi, Christian mission Kenya, Holy Trinity Mission, church vision, missionary training">
+  <meta name="author" content="Dominic Kimani">
+
+  <link rel="stylesheet" href="css/ministry-styles.css">
+
+</head>
+
+<body>
+
+  <header class="header">
+    <h1>Our Vision & Ministry</h1>
+  </header>
+
+  <nav class="nav">
+    <button class="donate-btn">DONATE</button>
+  </nav>
+
+  <!-- M-PESA Modal -->
+  <div id="mpesaModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>M-Pesa Donation</h2>
+      <p><strong>Paybill:</strong> 522522</p>
+      <p><strong>Account:</strong> <span id="accountNumber">1350150231</span></p>
+      <button id="copyAccountBtn">Copy Account Number</button>
+      <p>Thank you for supporting Holy Trinity Mission 🙏</p>
+    </div>
+  </div>
+
+  <!-- Images -->
+  <section class="images">
+    <img src="images/WhatsApp Image 2026-03-11 at 08.22.08.jpeg" alt="Missionary field visit">
+    <img src="images/WhatsApp Image 2026-03-13 at 14.16.10.jpeg" alt="Community outreach activity">
+    <img src="images/WhatsApp Image 2026-03-11 at 08.25.14.jpeg" alt="Missionary Peter with pastor Steve">
+    <img src="images/WhatsApp Image 2026-03-13 at 14.16.11.jpeg" alt="Field ministry event">
+  </section>
+
+  <p style="text-align:center; max-width:900px; margin:auto; padding:10px;">
+    Some of our field visits by main missionary Peter with pastor Steve and the communities they visited.
+    God’s work advances through godly and well-equipped leaders.
+  </p>
+
+  <hr>
+
+  <!-- Ministry Videos -->
+  <section class="middle">
+    <div class="vision-box">
+      <h2>Vision 1: Mobilizing Churches in Mission</h2>
+      <video width="100%" controls>
+        <source src="images/WhatsApp Video 2026-03-11 at 08.23.21.mp4" type="video/mp4">
+      </video>
+      <p>Every church, regardless of size or location, has a role in God's mission.</p>
+    </div>
+
+    <div class="vision-box">
+      <h2>Vision 2: Raising Leaders</h2>
+      <video width="100%" controls>
+        <source src="images/WhatsApp Video 2026-03-11 at 08.24.15.mp4" type="video/mp4">
+      </video>
+      <p>God’s work advances through godly and well-equipped leaders.</p>
+    </div>
+
+    <div class="vision-box">
+      <h2>Vision 3: Preparing Missionaries</h2>
+      <video width="100%" controls>
+        <source src="images/WhatsApp Video 2026-03-11 at 08.22.41.mp4" type="video/mp4">
+      </video>
+      <p>Missionaries must be spiritually grounded and culturally prepared.</p>
+    </div>
+  </section>
+
+  <hr>
+
+  <footer class="footer">
+    <p>We invite partnerships between churches for joint mission work.</p>
+    <p>© 2026 Holy Trinity International Mission. All Rights Reserved</p>
+  </footer>
+
+  <!-- WhatsApp Floating -->
+  <a class="whatsapp-float" href="#">💬 Chat With Us</a>
+
+  <!-- Lightbox -->
+  <div id="lightbox">
+    <img src="" alt="Expanded image">
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // --- M-PESA modal ---
+      const donateBtn = document.querySelector(".donate-btn");
+      const mpesaModal = document.getElementById("mpesaModal");
+      const closeBtn = mpesaModal.querySelector(".close");
+      const copyBtn = document.getElementById("copyAccountBtn");
+
+      donateBtn.addEventListener("click", () => mpesaModal.style.display = "flex");
+      closeBtn.addEventListener("click", () => mpesaModal.style.display = "none");
+      mpesaModal.addEventListener("click", e => {
+        if (e.target === mpesaModal) mpesaModal.style.display = "none";
+      });
+      copyBtn.addEventListener("click", () => {
+        navigator.clipboard.writeText(document.getElementById("accountNumber").innerText);
+        alert("Account number copied");
+      });
+
+      // --- WhatsApp float ---
+      document.querySelector(".whatsapp-float").addEventListener("click", e => {
+        e.preventDefault();
+        const message = "Hello, I would like to inquire about Holy Trinity Mission";
+        const number = "254782729130"; // only triggers on click
+        window.open(`https://wa.me/${number}?text=${encodeURIComponent(message)}`, "_blank");
+      });
+
+      // --- Image Lightbox ---
+      const images = document.querySelectorAll(".images img");
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = lightbox.querySelector("img");
+
+      images.forEach(img => {
+        img.addEventListener("click", () => {
+          lightboxImg.src = img.src;
+          lightbox.style.display = "flex";
+        });
+      });
+
+      lightbox.addEventListener("click", () => {
+        lightbox.style.display = "none";
+      });
+    });
+  </script>
+
+</body>
+
+</html>
