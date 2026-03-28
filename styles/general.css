@@ -1,0 +1,472 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+input,
+textarea,
+button {
+  font-family: inherit;
+  outline: none;
+}
+
+body {
+  background: #f4f4f4;
+  color: #333;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  background: rgb(5, 48, 143);
+  color: #fff;
+  padding: 15px 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+header .header-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 1.5rem;
+}
+
+header nav ul {
+  display: flex;
+  list-style: none;
+}
+
+header nav ul li {
+  margin: 0 15px;
+}
+
+header nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 12px;
+  transition: 0.3s;
+}
+
+header nav ul li a:hover {
+  background: #555;
+  border-radius: 5px;
+}
+
+.donate-header {
+  background: #fff;
+  color: goldenrod;
+  font-weight: bold;
+  padding: 8px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.donate-header:hover {
+  background: darkgoldenrod;
+  color: #fff;
+}
+
+/* Hero */
+.hero {
+  height: 80vh;
+  background: url('../images/WhatsApp Image 2026-03-11 at 08.22.05.jpeg') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hero h1 {
+  position: relative;
+  font-size: 3rem;
+  max-width: 800px;
+  animation: fadeIn 2s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Sections */
+section {
+  padding: 100px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 2.2rem;
+  color: #1c1c1c;
+}
+
+/* Services */
+.services {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.service-item {
+  background: #fff;
+  flex: 1 1 250px;
+  margin: 15px;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.service-item img {
+  width: 100px;
+  margin-bottom: 15px;
+}
+
+/* Gallery & Team */
+.gallery,
+.team {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.gallery img,
+.team-member img {
+  width: 150px;
+  border-radius: 10%;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.gallery img:hover,
+.team-member img:hover {
+  transform: scale(1.05);
+}
+
+.team-member {
+  text-align: center;
+  flex: 1 1 250px;
+}
+
+/* TEAM IMAGES FIX (DESKTOP + MOBILE) */
+.team-member img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Optional: better sizing for small screens */
+@media (max-width: 600px) {
+  .team-member img {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* Contact */
+.contact,
+.direct-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.email-btn {
+  display: inline-block;
+  padding: 12px 20px;
+  background: #2c7be5;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.email-btn:hover {
+  background: #1a5fd1;
+}
+
+.location {
+  text-decoration: none;
+  color: #333;
+}
+
+/* Footer */
+footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 25px 20px;
+}
+
+/* =========================
+   FLOATING BUTTONS
+========================= */
+.floating-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.floating-buttons a {
+  padding: 12px 15px;
+  border-radius: 8px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.whatsapp {
+  background: #25d366;
+}
+
+.email {
+  background: #007bff;
+}
+
+/* =========================
+   WHATSAPP MODAL
+========================= */
+.whatsapp-modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.whatsapp-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 350px;
+  text-align: center;
+}
+
+.close-btn {
+  float: right;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.wa-option {
+  background: #25d366;
+  color: white;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* =========================
+   DONATE MODAL
+========================= */
+.donate-modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.donate-modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* Image Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+
+.modal video {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+
+.modal .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Donate Modal */
+.donate-modal {
+  display: none;
+  position: fixed;
+  z-index: 3000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.donate-modal-content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 400px;
+  margin: auto;
+  position: relative;
+}
+
+.donate-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 2rem;
+  color: #333;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Video Box */
+.video-box {
+  position: relative;
+  width: 300px;
+  cursor: pointer;
+}
+
+.video-box video {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Play Button */
+.play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  padding: 10px 15px;
+}
+
+@media(max-width:768px) {
+  header .header-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* KEEP NAV IN ROW */
+  header nav ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  header nav ul li {
+    margin: 5px;
+  }
+
+  .donate-header {
+    align-self: center;
+  }
+
+  .services,
+  .gallery,
+  .team {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .service-item,
+  .gallery img,
+  .team-member img {
+    width: 80%;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+}
