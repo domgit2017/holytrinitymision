@@ -13,7 +13,7 @@
     content="Church Nairobi, Missions Kenya, Christian Ministry, Holy Trinity Mission, Gospel Outreach">
   <meta name="author" content="Holy Trinity International Mission">
 
-  <!-- Open Graph -->
+  <!-- Open Graph (for Google & social sharing) -->
   <meta property="og:title" content="Holy Trinity International Mission">
   <meta property="og:description"
     content="Join us in worship, missions, and community transformation in Kenya and beyond.">
@@ -55,11 +55,12 @@
     <h1>Join Us in Worship and Service to the Community</h1>
   </section>
 
+
   <!-- About Section -->
   <section id="about">
     <h2>About Us</h2>
     <p>Holy Trinity International Mission is committed to spiritual growth, worship, and community service in Nairobi
-      and beyond.
+      and beyond... (UNCHANGED)
     </p>
 
     <h2>Our Core Vision</h2>
@@ -70,6 +71,8 @@
       <li>To train youth for leadership</li>
     </ol>
   </section>
+
+
 
   <!-- Team Section -->
   <section id="team">
@@ -108,6 +111,7 @@
     </div>
   </section>
 
+
   <!-- Ministries Section -->
   <section id="ministries">
     <h2>Our Vision and Ministries</h2>
@@ -126,6 +130,7 @@
         </p>
       </div>
 
+
       <div class="service-item">
         <img src="images/WhatsApp Image 2026-03-13 at 14.16.10.jpeg" alt="Youth Ministry" class="expandable">
         <h3>Raising Leaders</h3>
@@ -140,6 +145,7 @@
         </p>
       </div>
 
+
       <div class="service-item">
         <img src="images/all.jpeg" alt="Community Outreach" class="expandable">
         <h3>Training and Sending Missionaries</h3>
@@ -153,6 +159,7 @@
           Christian communities, while providing continuous care and guidance.
         </p>
       </div>
+
 
       <div class="service-item">
         <img src="images/WhatsApp Image 2026-03-11 at 08.22.05.jpeg" alt="Community Outreach" class="expandable">
@@ -169,6 +176,7 @@
       </div>
     </div>
   </section>
+
 
   <!-- Gallery Section -->
   <section id="gallery">
@@ -193,6 +201,7 @@
         <video src="images/WhatsApp Video 2026-03-11 at 08.22.41.mp4"></video>
         <div class="play-btn">▶</div>
       </div>
+
 
     </div>
   </section>
@@ -305,7 +314,7 @@
 
   <script>
 
-    /* IMAGE MODAL */
+    // IMAGE MODAL
     document.querySelectorAll('.expandable').forEach(img => {
       img.addEventListener('click', () => {
         const modal = document.createElement('div');
@@ -323,7 +332,7 @@
       });
     });
 
-    /* VIDEO MODAL */
+    // VIDEO MODAL
     document.querySelectorAll('.video-box').forEach(box => {
       box.addEventListener('click', () => {
 
@@ -346,7 +355,7 @@
       });
     });
 
-    /* WHATSAPP MODAL */
+    // WHATSAPP MODAL
     function openWhatsAppModal() {
       document.getElementById("whatsappModal").style.display = "flex";
     }
@@ -361,7 +370,7 @@
       window.open(url, "_blank");
     }
 
-    /* CALL MODAL */
+    // CALL MODAL
     function openCallModal() {
       document.getElementById("callModal").style.display = "flex";
     }
@@ -370,12 +379,11 @@
       document.getElementById("callModal").style.display = "none";
     }
 
-    // Open phone dialer
     function makeCall(number) {
       window.location.href = "tel:" + number;
     }
 
-    /* DONATE MODAL */
+    // DONATE MODAL
     function openDonateModal() {
       document.getElementById('donateModal').style.display = 'flex';
     }
@@ -384,7 +392,7 @@
       document.getElementById('donateModal').style.display = 'none';
     }
 
-    /*SMART EMAIL (MOBILE + DESKTOP) */
+    // SMART EMAIL (MOBILE + DESKTOP)
     function openSmartEmail() {
       const to = "hollytrinityministries@gmail.com";
       const cc = "hollytrinityministries@gmail.com";
@@ -393,32 +401,26 @@
 
       const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-      // Gmail Web (desktop)
       const gmailWeb = `https://mail.google.com/mail/?view=cm&fs=1&to=${to}&cc=${cc}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-      // Gmail App (mobile)
       const gmailApp = `googlegmail://co?to=${to}&cc=${cc}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
       if (isMobile) {
-        /* Gmail app */ 
         window.location.href = gmailApp;
 
-        /* Fallback to mail app */
         setTimeout(() => {
           window.location.href = `mailto:${to}?cc=${cc}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         }, 800);
       } else {
-        /* Desktop → open Gmail web */
         const win = window.open(gmailWeb, "_blank");
 
-        /* Fallback if blocked */
         if (!win) {
           window.location.href = `mailto:${to}?cc=${cc}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         }
       }
     }
 
-    /* CLOSE MODALS WHEN CLICK OUTSIDE */
+    // CLOSE MODALS WHEN CLICK OUTSIDE
 
     window.onclick = function (e) {
       const wa = document.getElementById('whatsappModal');
