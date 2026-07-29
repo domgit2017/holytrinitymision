@@ -17,7 +17,6 @@ body {
   color: #333;
 }
 
-/* Header */
 header {
   position: fixed;
   width: 100%;
@@ -77,41 +76,6 @@ header nav ul li a:hover {
 .donate-header:hover {
   background: darkgoldenrod;
   color: #fff;
-}
-
-  header nav ul {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    font-size: 12px;
-    padding: 8px;
-  }
-
-  header nav ul li {
-    margin: 5px;
-  }
-
-  .donate-header {
-    align-self: center;
-  }
-
-  .services,
-  .gallery,
-  .team {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .service-item,
-  .gallery img,
-  .team-member img {
-    width: 80%;
-  }
-
-  .hero h1 {
-    font-size: 2rem;
-  }
 }
 
 /* Hero */
@@ -224,7 +188,7 @@ h2 {
   flex: 1 1 250px;
 }
 
-/* Team images*/
+/* TEAM IMAGES FIX (DESKTOP + MOBILE) */
 .team-member img {
   width: 150px;
   height: 150px;
@@ -234,7 +198,7 @@ h2 {
   margin: 0 auto;
 }
 
-/* Sizing for small screens */
+/* Optional: better sizing for small screens */
 @media (max-width: 600px) {
   .team-member img {
     width: 120px;
@@ -242,7 +206,7 @@ h2 {
   }
 }
 
-/* Contacts */
+/* Contact */
 .contact,
 .direct-contact {
   display: flex;
@@ -278,7 +242,7 @@ footer {
   padding: 25px 20px;
 }
 
-/* Buttons */
+/* FLOATING BUTTONS */
 .floating-buttons {
   position: fixed;
   bottom: 20px;
@@ -305,7 +269,7 @@ footer {
   background: #007bff;
 }
 
-/* Whatsapp modal */
+/* WHATSAPP MODAL*/
 .whatsapp-modal {
   display: none;
   position: fixed;
@@ -335,7 +299,7 @@ footer {
 }
 
 .wa-option {
-  background: #25d366;
+  background: #d3b025;
   color: white;
   padding: 12px;
   margin: 10px 0;
@@ -343,7 +307,7 @@ footer {
   cursor: pointer;
 }
 
-/* Donate modal */
+/* DONATE MODAL */
 .donate-modal {
   display: none;
   position: fixed;
@@ -364,7 +328,7 @@ footer {
   text-align: center;
 }
 
-/* Image modal */
+/* Image Modal */
 .modal {
   position: fixed;
   top: 0;
@@ -399,7 +363,7 @@ footer {
   cursor: pointer;
 }
 
-/* Donate modal */
+/* Donate Modal */
 .donate-modal {
   display: none;
   position: fixed;
@@ -465,3 +429,38 @@ footer {
     gap: 10px;
   }
 
+  /* KEEP NAV IN ROW */
+  header nav ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  header nav ul li {
+    margin: 5px;
+  }
+
+  .donate-header {
+    align-self: center;
+  }
+
+  .services,
+  .gallery,
+  .team {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .service-item,
+  .gallery img,
+  .team-member img {
+    width: 80%;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+}
