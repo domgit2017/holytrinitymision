@@ -1,8 +1,19 @@
+/* Base */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
 }
 
 input,
@@ -12,66 +23,79 @@ button {
   outline: none;
 }
 
-body {
-  background: #f4f4f4;
-  color: #333;
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+img,
+video {
+  max-width: 100%;
 }
 
 /* Header */
 header {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
+  padding: 15px 0;
   background: rgb(5, 48, 143);
   color: #fff;
-  padding: 15px 0;
   z-index: 1000;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-header .header-container {
+.header-container {
   max-width: 1200px;
   margin: auto;
   padding: 0 20px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  gap: 20px;
 }
 
 header h1 {
   font-size: 1.5rem;
+  line-height: 1.2;
 }
 
 header nav ul {
   display: flex;
+  align-items: center;
   list-style: none;
 }
 
-header nav ul li {
-  margin: 0 15px;
+header nav li {
+  margin: 0 5px;
 }
 
-header nav ul li a {
+header nav a {
+  display: block;
+  padding: 8px 12px;
   color: #fff;
   text-decoration: none;
   font-weight: 500;
-  padding: 8px 12px;
-  transition: 0.3s;
+  border-radius: 5px;
+  transition: background 0.3s ease;
 }
 
-header nav ul li a:hover {
+header nav a:hover {
   background: #555;
-  border-radius: 5px;
 }
 
 .donate-header {
+  display: inline-block;
+  padding: 8px 20px;
   background: #fff;
   color: goldenrod;
   font-weight: bold;
-  padding: 8px 20px;
   border-radius: 20px;
   text-decoration: none;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.3s ease;
+  white-space: nowrap;
 }
 
 .donate-header:hover {
@@ -81,14 +105,15 @@ header nav ul li a:hover {
 
 /* Hero */
 .hero {
-  height: 80vh;
-  background: url("../images/WhatsApp Image 2026-03-11 at 08.22.05.jpeg") center/cover no-repeat;
+  position: relative;
+  min-height: 80vh;
+  padding: 100px 20px 40px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  background: url("../images/WhatsApp Image 2026-03-11 at 08.22.05.jpeg") center / cover no-repeat;
   color: #fff;
   text-align: center;
-  position: relative;
 }
 
 .hero::after {
@@ -100,23 +125,29 @@ header nav ul li a:hover {
 
 .hero h1 {
   position: relative;
-  font-size: 3rem;
+  z-index: 1;
   max-width: 800px;
+  font-size: 3rem;
+  line-height: 1.2;
   animation: fadeIn 2s ease-in-out forwards;
 }
 
 /* Sections */
 section {
-  padding: 100px 20px;
   max-width: 1200px;
   margin: auto;
+  padding: 100px 20px;
 }
 
-h2 {
-  text-align: center;
+section h2 {
   margin-bottom: 50px;
-  font-size: 2.2rem;
   color: #1c1c1c;
+  text-align: center;
+  font-size: 2.2rem;
+}
+
+section p {
+  margin-bottom: 15px;
 }
 
 /* Services */
@@ -127,14 +158,14 @@ h2 {
 }
 
 .service-item {
-  background: #fff;
   flex: 1 1 250px;
   margin: 15px;
   padding: 30px;
+  background: #fff;
   border-radius: 10px;
   text-align: center;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .service-item:hover {
@@ -144,21 +175,34 @@ h2 {
 
 .service-item img {
   width: 100px;
+  height: 100px;
   margin-bottom: 15px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
-/* Team carousel */
-.team-carousel {
+/* Carousels */
+.team-carousel,
+.gallery-carousel {
   position: relative;
   width: 100%;
-  max-width: 700px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.team-slider {
+.team-carousel {
+  max-width: 700px;
+}
+
+.gallery-carousel {
+  max-width: 800px;
+}
+
+.team-slider,
+.gallery-slider {
   width: 100%;
   display: flex;
   overflow-x: auto;
@@ -168,25 +212,38 @@ h2 {
   -webkit-overflow-scrolling: touch;
 }
 
-.team-slider::-webkit-scrollbar {
+.team-slider::-webkit-scrollbar,
+.gallery-slider::-webkit-scrollbar {
   display: none;
 }
 
-.team-member {
+.team-member,
+.gallery-item {
   flex: 0 0 100%;
   width: 100%;
   scroll-snap-align: center;
+}
+
+.team-member {
+  padding: 20px 60px;
   text-align: center;
+}
+
+.gallery-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 20px 60px;
 }
 
+/* Team */
 .team-member img {
   width: 220px;
   height: 220px;
+  margin: 0 auto 20px;
+  display: block;
   object-fit: cover;
   border-radius: 50%;
-  display: block;
-  margin: 0 auto 20px;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -203,107 +260,22 @@ h2 {
 }
 
 .team-member p {
-  font-size: 1.1rem;
   color: #555;
+  font-size: 1.1rem;
 }
 
-/* Team arrows */
-.team-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 45px;
-  height: 45px;
-  border: none;
-  border-radius: 50%;
-  background: rgb(5, 48, 143);
-  color: #fff;
-  font-size: 25px;
+/* Gallery */
+.gallery-item img,
+.gallery-item.video-box {
+  width: 100%;
+  max-width: 600px;
   cursor: pointer;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.3s ease, transform 0.3s ease;
-}
-
-.team-arrow:hover {
-  background: #d3b025;
-  transform: translateY(-50%) scale(1.1);
-}
-
-.team-prev {
-  left: 5px;
-}
-
-.team-next {
-  right: 5px;
-}
-
-/* Team dots */
-.team-dots {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 20px;
-}
-
-.team-dot {
-  width: 10px;
-  height: 10px;
-  background: #ccc;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.team-dot.active {
-  background: rgb(5, 48, 143);
-  transform: scale(1.3);
-}
-
-/* Gallery carousel */
-.gallery-carousel {
-  position: relative;
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.gallery-slider {
-  width: 100%;
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
-}
-
-.gallery-slider::-webkit-scrollbar {
-  display: none;
-}
-
-.gallery-item {
-  flex: 0 0 100%;
-  width: 100%;
-  scroll-snap-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px 60px;
 }
 
 .gallery-item img {
-  width: 100%;
-  max-width: 600px;
   height: 400px;
   object-fit: cover;
   border-radius: 12px;
-  cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -312,43 +284,39 @@ h2 {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* Gallery videos */
-.gallery-item .video-box {
+.gallery-item.video-box {
   position: relative;
-  width: 100%;
-  max-width: 600px;
-  cursor: pointer;
 }
 
-.gallery-item .video-box video {
+.gallery-item.video-box video {
   width: 100%;
   height: 400px;
+  display: block;
   object-fit: cover;
   border-radius: 12px;
-  display: block;
 }
 
-/* Gallery play button */
-.gallery-item .play-btn {
+.play-btn {
   position: absolute;
   top: 50%;
   left: 50%;
+  padding: 10px 15px;
   transform: translate(-50%, -50%);
-  font-size: 40px;
   color: #fff;
   background: rgba(0, 0, 0, 0.6);
   border-radius: 50%;
-  padding: 10px 15px;
+  font-size: 40px;
   pointer-events: none;
 }
 
-/* Gallery arrows */
+/* Carousel controls */
+.team-arrow,
 .gallery-arrow {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
   width: 45px;
   height: 45px;
+  transform: translateY(-50%);
   border: none;
   border-radius: 50%;
   background: rgb(5, 48, 143);
@@ -362,20 +330,24 @@ h2 {
   transition: background 0.3s ease, transform 0.3s ease;
 }
 
+.team-arrow:hover,
 .gallery-arrow:hover {
   background: #d3b025;
   transform: translateY(-50%) scale(1.1);
 }
 
+.team-prev,
 .gallery-prev {
   left: 5px;
 }
 
+.team-next,
 .gallery-next {
   right: 5px;
 }
 
-/* Gallery dots */
+/* Carousel dots */
+.team-dots,
 .gallery-dots {
   display: flex;
   justify-content: center;
@@ -383,15 +355,17 @@ h2 {
   margin-top: 20px;
 }
 
+.team-dot,
 .gallery-dot {
   width: 10px;
   height: 10px;
   background: #ccc;
   border-radius: 50%;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
+.team-dot.active,
 .gallery-dot.active {
   background: rgb(5, 48, 143);
   transform: scale(1.3);
@@ -406,14 +380,20 @@ h2 {
   justify-content: center;
 }
 
+.contact>p {
+  max-width: 1000px;
+  text-align: center;
+}
+
 .email-btn {
   display: inline-block;
+  margin-top: 10px;
   padding: 12px 20px;
   background: #2c7be5;
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
-  margin-top: 10px;
+  transition: background 0.3s ease;
 }
 
 .email-btn:hover {
@@ -421,23 +401,27 @@ h2 {
 }
 
 .location {
-  text-decoration: none;
   color: #333;
+  text-decoration: none;
+}
+
+.location:hover {
+  text-decoration: underline;
 }
 
 /* Footer */
 footer {
+  padding: 25px 20px;
   background: #333;
   color: #fff;
   text-align: center;
-  padding: 25px 20px;
 }
 
 /* Floating buttons */
 .floating-buttons {
   position: fixed;
-  bottom: 20px;
   right: 20px;
+  bottom: 20px;
   z-index: 9999;
   display: flex;
   flex-direction: column;
@@ -446,10 +430,16 @@ footer {
 
 .floating-buttons a {
   padding: 12px 15px;
-  border-radius: 8px;
   color: #fff;
   text-decoration: none;
   font-size: 14px;
+  border-radius: 8px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.floating-buttons a:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
 }
 
 .whatsapp {
@@ -460,75 +450,82 @@ footer {
   background: #007bff;
 }
 
-/* Whatsapp modal */
-.whatsapp-modal {
-  display: none;
+/* Modals */
+.whatsapp-modal,
+.donate-modal {
   position: fixed;
-  z-index: 10000;
   inset: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.7);
   justify-content: center;
   align-items: center;
+}
+
+.whatsapp-modal {
+  display: none;
+  z-index: 10000;
+}
+
+.donate-modal {
+  display: none;
+  z-index: 3000;
+  overflow: auto;
+}
+
+.whatsapp-content,
+.donate-modal-content {
+  position: relative;
+  width: 90%;
+  background: #fff;
+  text-align: center;
+  border-radius: 10px;
 }
 
 .whatsapp-content {
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  width: 90%;
   max-width: 350px;
-  text-align: center;
-}
-
-.close-btn {
-  float: right;
-  font-size: 22px;
-  cursor: pointer;
-}
-
-.wa-option {
-  background: #d3b025;
-  color: #fff;
-  padding: 12px;
-  margin: 10px 0;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-/* Donate modal */
-.donate-modal {
-  display: none;
-  position: fixed;
-  z-index: 3000;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background: rgba(0, 0, 0, 0.7);
-  justify-content: center;
-  align-items: center;
+  padding: 20px;
 }
 
 .donate-modal-content {
-  background: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  text-align: center;
   max-width: 400px;
   margin: auto;
-  position: relative;
+  padding: 30px;
+}
+
+.close-btn,
+.donate-close {
+  position: absolute;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.close-btn {
+  top: 10px;
+  right: 15px;
+  font-size: 22px;
 }
 
 .donate-close {
-  position: absolute;
   top: 10px;
   right: 15px;
-  font-size: 2rem;
   color: #333;
+  font-size: 2rem;
+}
+
+.wa-option {
+  margin: 10px 0;
+  padding: 12px;
+  background: #d3b025;
+  color: #fff;
+  border-radius: 8px;
   cursor: pointer;
-  font-weight: bold;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.wa-option:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
 }
 
 /* Image modal */
@@ -537,11 +534,12 @@ footer {
   inset: 0;
   width: 100%;
   height: 100%;
+  padding: 20px;
   background: rgba(0, 0, 0, 0.8);
   display: flex;
-  justify-content: center;
   align-items: center;
-  z-index: 2000;
+  justify-content: center;
+  z-index: 20000;
 }
 
 .modal img,
@@ -555,12 +553,13 @@ footer {
   position: absolute;
   top: 20px;
   right: 30px;
-  font-size: 2rem;
   color: #fff;
+  font-size: 2rem;
   cursor: pointer;
+  z-index: 1;
 }
 
-/* Animations */
+/* Animation */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -573,28 +572,48 @@ footer {
   }
 }
 
-/* Tablet and mobile */
+/* Tablet */
 @media (max-width: 768px) {
   header .header-container {
     flex-direction: column;
     gap: 10px;
   }
 
+  header h1 {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
   header nav ul {
-    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
     font-size: 12px;
     padding: 8px;
   }
 
-  header nav ul li {
+  header nav li {
     margin: 5px;
   }
 
   .donate-header {
     align-self: center;
+  }
+
+  .hero {
+    min-height: 75vh;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  section {
+    padding: 80px 15px;
+  }
+
+  section h2 {
+    font-size: 2rem;
+    margin-bottom: 35px;
   }
 
   .services {
@@ -606,12 +625,8 @@ footer {
     width: 80%;
   }
 
-  .hero h1 {
-    font-size: 2rem;
-  }
-
-  /* Team carousel */
-  .team-carousel {
+  .team-carousel,
+  .gallery-carousel {
     max-width: 100%;
   }
 
@@ -624,23 +639,21 @@ footer {
     height: 180px;
   }
 
-  .team-arrow {
+  .team-arrow,
+  .gallery-arrow {
     width: 40px;
     height: 40px;
     font-size: 20px;
   }
 
-  .team-prev {
+  .team-prev,
+  .gallery-prev {
     left: 2px;
   }
 
-  .team-next {
+  .team-next,
+  .gallery-next {
     right: 2px;
-  }
-
-  /* Gallery carousel */
-  .gallery-carousel {
-    max-width: 100%;
   }
 
   .gallery-item {
@@ -648,27 +661,68 @@ footer {
   }
 
   .gallery-item img,
-  .gallery-item .video-box video {
+  .gallery-item.video-box video {
     height: 300px;
   }
 
-  .gallery-arrow {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-  }
-
-  .gallery-prev {
-    left: 2px;
-  }
-
-  .gallery-next {
-    right: 2px;
+  .floating-buttons {
+    right: 15px;
+    bottom: 15px;
   }
 }
 
 /* Small phones */
 @media (max-width: 600px) {
+  header {
+    padding: 10px 0;
+  }
+
+  header h1 {
+    font-size: 1.1rem;
+  }
+
+  header nav ul {
+    gap: 2px;
+    padding: 4px;
+  }
+
+  header nav a {
+    padding: 6px 8px;
+    font-size: 11px;
+  }
+
+  .donate-header {
+    padding: 7px 16px;
+    font-size: 13px;
+  }
+
+  .hero {
+    min-height: 70vh;
+  }
+
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+
+  section {
+    padding: 70px 12px;
+  }
+
+  section h2 {
+    font-size: 1.7rem;
+    margin-bottom: 30px;
+  }
+
+  .service-item {
+    width: 95%;
+    margin: 10px 0;
+    padding: 25px 20px;
+  }
+
+  .team-member {
+    padding: 15px 40px;
+  }
+
   .team-member img {
     width: 150px;
     height: 150px;
@@ -687,7 +741,50 @@ footer {
   }
 
   .gallery-item img,
-  .gallery-item .video-box video {
+  .gallery-item.video-box video {
     height: 250px;
+  }
+
+  .floating-buttons {
+    right: 10px;
+    bottom: 10px;
+    gap: 7px;
+  }
+
+  .floating-buttons a {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .whatsapp-content,
+  .donate-modal-content {
+    width: 92%;
+  }
+
+  .modal img,
+  .modal video {
+    max-width: 95%;
+    max-height: 85%;
+  }
+
+  .modal .close {
+    top: 15px;
+    right: 20px;
+  }
+}
+
+/* Touch devices */
+@media (hover: none) {
+
+  .service-item:hover,
+  .team-member img:hover,
+  .gallery-item img:hover,
+  .floating-buttons a:hover,
+  .wa-option:hover {
+    transform: none;
+  }
+
+  .service-item:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   }
 }
