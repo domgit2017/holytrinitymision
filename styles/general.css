@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 input,
@@ -17,6 +17,7 @@ body {
   color: #333;
 }
 
+/* Header */
 header {
   position: fixed;
   width: 100%;
@@ -81,7 +82,7 @@ header nav ul li a:hover {
 /* Hero */
 .hero {
   height: 80vh;
-  background: url('../images/WhatsApp Image 2026-03-11 at 08.22.05.jpeg') center/cover no-repeat;
+  background: url("../images/WhatsApp Image 2026-03-11 at 08.22.05.jpeg") center/cover no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -93,10 +94,7 @@ header nav ul li a:hover {
 .hero::after {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: rgba(0, 0, 0, 0.5);
 }
 
@@ -107,19 +105,7 @@ header nav ul li a:hover {
   animation: fadeIn 2s ease-in-out forwards;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Sections */
+/* Sections*/
 section {
   padding: 100px 20px;
   max-width: 1200px;
@@ -161,49 +147,138 @@ h2 {
   margin-bottom: 15px;
 }
 
-/* Gallery & Team */
-.gallery,
-.team {
+/* Gallery */
+.gallery {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
 }
 
-.gallery img,
-.team-member img {
+.gallery img {
   width: 150px;
   border-radius: 10%;
   cursor: pointer;
   transition: transform 0.3s;
 }
 
-.gallery img:hover,
-.team-member img:hover {
+.gallery img:hover {
   transform: scale(1.05);
 }
 
-.team-member {
-  text-align: center;
-  flex: 1 1 250px;
+/* Team carousel */
+.team-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* TEAM IMAGES FIX (DESKTOP + MOBILE) */
+.team-slider {
+  width: 100%;
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.team-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.team-member {
+  flex: 0 0 100%;
+  width: 100%;
+  scroll-snap-align: center;
+  text-align: center;
+  padding: 20px 60px;
+}
+
 .team-member img {
-  width: 150px;
-  height: 150px;
+  width: 220px;
+  height: 220px;
   object-fit: cover;
   border-radius: 50%;
   display: block;
-  margin: 0 auto;
+  margin: 0 auto 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Optional: better sizing for small screens */
-@media (max-width: 600px) {
-  .team-member img {
-    width: 120px;
-    height: 120px;
-  }
+.team-member img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.team-member h3 {
+  margin-bottom: 8px;
+  color: #05308f;
+  font-size: 1.4rem;
+}
+
+.team-member p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* Team arrows */
+.team-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  background: rgb(5, 48, 143);
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.team-arrow:hover {
+  background: #d3b025;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.team-prev {
+  left: 5px;
+}
+
+.team-next {
+  right: 5px;
+}
+
+/* Team dots */
+.team-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.team-dot {
+  width: 10px;
+  height: 10px;
+  background: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.team-dot.active {
+  background: rgb(5, 48, 143);
+  transform: scale(1.3);
 }
 
 /* Contact */
@@ -242,7 +317,7 @@ footer {
   padding: 25px 20px;
 }
 
-/* FLOATING BUTTONS */
+/* Floating buttons */
 .floating-buttons {
   position: fixed;
   bottom: 20px;
@@ -269,13 +344,12 @@ footer {
   background: #007bff;
 }
 
-/* WHATSAPP MODAL*/
+/* Whatsapp modal */
 .whatsapp-modal {
   display: none;
   position: fixed;
   z-index: 10000;
-  left: 0;
-  top: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.7);
@@ -307,69 +381,12 @@ footer {
   cursor: pointer;
 }
 
-/* DONATE MODAL */
-.donate-modal {
-  display: none;
-  position: fixed;
-  z-index: 10000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  justify-content: center;
-  align-items: center;
-}
-
-.donate-modal-content {
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-}
-
-/* Image Modal */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 2000;
-}
-
-.modal img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 10px;
-}
-
-.modal video {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 10px;
-}
-
-.modal .close {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  font-size: 2rem;
-  color: #fff;
-  cursor: pointer;
-}
-
-/* Donate Modal */
+/* Donate modal */
 .donate-modal {
   display: none;
   position: fixed;
   z-index: 3000;
-  left: 0;
-  top: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
@@ -398,7 +415,36 @@ footer {
   font-weight: bold;
 }
 
-/* Video Box */
+/* Image modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal img,
+.modal video {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+
+.modal .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Video box */
 .video-box {
   position: relative;
   width: 300px;
@@ -410,7 +456,6 @@ footer {
   border-radius: 10px;
 }
 
-/* Play Button */
 .play-btn {
   position: absolute;
   top: 50%;
@@ -423,13 +468,26 @@ footer {
   padding: 10px 15px;
 }
 
-@media(max-width:768px) {
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tablet / mobile */
+@media (max-width: 768px) {
   header .header-container {
     flex-direction: column;
     gap: 10px;
   }
 
-  /* KEEP NAV IN ROW */
   header nav ul {
     flex-direction: row;
     flex-wrap: wrap;
@@ -448,19 +506,61 @@ footer {
   }
 
   .services,
-  .gallery,
-  .team {
+  .gallery {
     flex-direction: column;
     align-items: center;
   }
 
   .service-item,
-  .gallery img,
-  .team-member img {
+  .gallery img {
     width: 80%;
   }
 
   .hero h1 {
     font-size: 2rem;
+  }
+
+  /* Team carousel */
+  .team-carousel {
+    max-width: 100%;
+  }
+
+  .team-member {
+    padding: 20px 50px;
+  }
+
+  .team-member img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .team-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  .team-prev {
+    left: 2px;
+  }
+
+  .team-next {
+    right: 2px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 600px) {
+  .team-member img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .team-member h3 {
+    font-size: 1.2rem;
+  }
+
+  .team-member p {
+    font-size: 1rem;
   }
 }
